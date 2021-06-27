@@ -1,0 +1,55 @@
+django公式：
+
+django-admin startproject helloworldproject 
+runサーバー：webサーバーを立ち上げる
+python manage.py runserver
+127.0.0.1:8000 ローカルホスト(自分のパソコン)
+127:0:0:1 特殊なipアドレス(自分のパソコンのこと)
+8000 ポート番号、何に関するリクエストなのか。
+manage.py:書き込みをする際に実行する。ユーザーを作成するなど
+__init__.py: pythonで書いていくと定義するもの
+wsgi.py: Webサーバとpythonのコードのルールを規定したもの
+setting.py: djangoに関する設定
+urls.py: webサーバから何か受け取り、views.pyにつなげていく
+
+urls.py: path(文字列、表示されるファイル)
+templateview
+template_name: ファイルがどこにあるかを指定する
+setting.pyでふどこにあるのか指示する
+classの場合はas_view
+appでもurls.pyを作る
+python manage.py startapp 'namae'
+models.py : 
+modelfield
+###https://docs.djangoproject.com/en/3.2/ref/models/fields/
+###https://qiita.com/nachashin/items/f768f0d437e0042dd4b3
+python manage.py makemigrations  データベースに反映させる
+python manage.py migrate
+python manage.py createsuperuser
+
+crud : createview, listview, detailview, updateview, deleteview
+
+html : {%%} 複雑な処理
+    　　{{}} データ
+object : modelから作成されたやつ
+bootstrap : たくさんのコードが書かれたcss(https://getbootstrap.com/docs/5.0/components/alerts/)
+
+
+base.html
+
+　###初期設定###
+1, djangoの環境を作る
+2, django-admin startproject boardproject .
+3, python manage.py startapp boardapp
+4, setting.pyの設定
+4−1, installappsの所に'boardapp.apps.BoardappConfig',を加える
+4-2, htmlファイルが入っている場所を定義するためにtemplatesの所に'DIRS': [BASE_DIR / 'templates'],を加える
+5, manage.pyが入っているファイルの中にtemplatesフォルダを作成する
+6, urlのつなぎこみを行う。urls.pyのurl_patterns中にpath('',include('boardapp.urls'))を追記して、includeライブラリを追加する
+7, appの方にもurls.pyを作成し、projectの中のurl.pyのコードをはりつける
+8, appの方のurls.pyのincludeの部分を消す
+
+
+
+admin.py : models.pyファイルに書いたことを認識させる。makemigrationsした後に触る
+
